@@ -6,7 +6,10 @@ const mongoose = require('mongoose');
 const morgan = require('morgan'); // used to see requests
 const db = require('./models');
 const axios = require('axios');
-const PORT = process.env.PORT || 3001;
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
 
 const isAuthenticated = require("./config/isAuthenticated");
 const auth = require("./config/auth");
